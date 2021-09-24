@@ -11,7 +11,7 @@ public class MainProgram {
        // MethodHolder.upperCaseToLowerCase();
         //MethodHolder.lowerCaseToUpperCase();
         //MethodHolder.upperCaseToLowerCaseNoFunction();
-        //MethodHolder.lowerCaseToUpperCaseNoFunction();
+        //MethodHolkder.lowerCaseToUpperCaseNoFunction();
          //MethodHolder.alternativeLetterstoUpperCase();
         //MethodHolder.capitalizeFirstLetterString();
         //MethodHolder.capitalizeFirstAndLastLetterString();
@@ -35,9 +35,19 @@ public class MainProgram {
         //MethodHolder.stringMatchChecker();
        // MethodHolder.removeUpperCase();
        // MethodHolder.removeLowerCase();
-        MethodHolder.removeSpecialCharacters();
-
-
+      //  MethodHolder.removeSpecialCharacters();
+        //MethodHolder.removeNumbers();
+       // MethodHolder.checkSubstring();
+        //MethodHolder.shortPalindromeChecker();
+        //MethodHolder.longestPalindromeChecker();
+//MethodHolder.shortestWordChecker();
+        //MethodHolder.longestWordChecker();
+       // MethodHolder.suffixChecker();
+        //MethodHolder.prefixChecker();
+       // MethodHolder.digitChecker();
+        //MethodHolder.atleastOneNumberChecker();
+        //MethodHolder.twiceCharacterPrinter();
+        MethodHolder.lexicographicRank();
 
 
 

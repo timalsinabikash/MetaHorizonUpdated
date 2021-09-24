@@ -3,7 +3,7 @@ package com.meta.java.stringMethodHw;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class MethodHolder {
+public class  MethodHolder {
     public static void main(String[] args) {
 
     }
@@ -823,6 +823,8 @@ public class MethodHolder {
         String[] userInput = new String[input.length()];
         String specialCharacters = "`~!@#$%^&*()_+-'.,/?><:;|";
         String trimmed = "";
+
+        boolean passed = false;
         String[] specialCharactersArray = new String[specialCharacters.length()];
 
 
@@ -836,17 +838,498 @@ public class MethodHolder {
 
         for (int i = 0; i < input.length(); i++) {
             for (int j = 0; j < specialCharacters.length(); j++) {
-                if (!userInput[i].contains(specialCharactersArray[j])) {
-                    trimmed = trimmed + userInput[i];
+                if (userInput[i].contains(specialCharactersArray[j])) {
+                    passed = true;
+
+                    break;
 
                 }
             }
+            if (!passed) {
+                trimmed = trimmed + userInput[i];
+            } else
+                passed = false;
+
         }
 
         System.out.println(trimmed);
     }
 
-}
+        /*Write a program to remove all numbers in the string.*/
+    public static void removeNumbers() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string with Numbers:");
+        String input = sc.nextLine();
+        String[] userInput = new String[input.length()];
+        String numbers = "0123456789";
+        String trimmed = "";
+        boolean passed = false;
+        String[] numbersArray = new String[numbers.length()];
+
+
+        for (int i = 0; i < numbers.length(); i++) {
+            numbersArray[i] = numbers.substring(i, i + 1);
+        }
+        for (int i = 0; i < input.length(); i++) {
+            userInput[i] = input.substring(i, i + 1);
+        }
+
+
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = 0; j < numbers.length(); j++) {
+                if (userInput[i].contains(numbersArray[j])) {
+                   passed = true;
+                   break;
+
+                }
+            }
+            if (!passed) {
+                trimmed = trimmed + userInput[i];
+            } else
+                passed = false;
+        }
+
+        System.out.println(trimmed);
+
+    }
+
+
+
+
+/*Write a Program to check if a string contains a given substring.
+* */
+
+    public static void checkSubstring() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string :");
+        String input = sc.nextLine();
+        System.out.println("Please enter a substring:");
+        String subString = sc.nextLine();
+
+        if(input.contains(subString)){
+            System.out.println("The string contains the substring.");
+        } else
+            System.out.println("The string doesn't contains the substring.");
+
+        System.out.println("   ");
+    }
+//    Write a Program to Find the Shortest palindromic substring in a string.
+
+    public static void shortPalindromeChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a palindromes separated by spaces:");
+        String input = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+        String finalString = "";
+
+        int counter = 0;
+
+
+        for (int i = 0; i < userInput.length; i++) {
+            String reversed = "";
+            String temp = "";
+            temp = userInput[i];
+            String firstString = userInput[0];
+
+
+            String[] tempArray = new String[temp.length()];
+            for (int j = 0; j < tempArray.length; j++) {
+                tempArray[j] = temp.substring(j, j + 1);
+            }
+            for (int k = tempArray.length - 1; k >= 0; k--) {
+                reversed = reversed + tempArray[k];
+
+            }
+            if (temp.equalsIgnoreCase(reversed)) {
+                if (counter == 0) {
+                    finalString = firstString;
+                    counter++;
+                } else if (temp.length() < finalString.length()) {
+                    finalString = temp;
+                }
+
+
+            } else {
+                finalString = "No palindromes entered";
+            }
+
+
+        }
+        if (finalString.contains(" ")) {
+            System.out.println(finalString);
+        } else{
+            System.out.println("The shortest palindrome is: " + finalString);
+    }
+        System.out.println(" ");
+
+    }
+/*Write a Program to Find the Longest palindromic substring in a string.*/
+
+    public static void longestPalindromeChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a palindromes separated by spaces:");
+        String input = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+        String finalString = "";
+
+        int counter = 0;
+
+
+        for (int i = 0; i < userInput.length; i++) {
+            String reversed = "";
+            String temp = "";
+            temp = userInput[i];
+            String firstString = userInput[0];
+
+
+            String[] tempArray = new String[temp.length()];
+            for (int j = 0; j < tempArray.length; j++) {
+                tempArray[j] = temp.substring(j, j + 1);
+            }
+            for (int k = tempArray.length - 1; k >= 0; k--) {
+                reversed = reversed + tempArray[k];
+
+            }
+            if (temp.equalsIgnoreCase(reversed)) {
+                if (counter == 0) {
+                    finalString = firstString;
+                    counter++;
+                } else if (temp.length() > finalString.length()) {
+                    finalString = temp;
+                }
+
+
+            } else {
+                finalString = "No palindromes entered";
+            }
+
+
+        }
+        if (finalString.contains(" ")) {
+            System.out.println(finalString);
+        } else{
+            System.out.println("The longest palindrome is: " + finalString);
+        }
+        System.out.println(" ");
+
+    }
+/*Write a program to Find the shortest word in a string.*/
+
+    public static void shortestWordChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a sentence:");
+        String input = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+        String finalString = "";
+
+        int counter = 0;
+
+
+        for (int i = 0; i < userInput.length; i++) {
+            String reversed = "";
+            String temp = "";
+            temp = userInput[i];
+            String firstString = userInput[0];
+
+
+
+                if (counter == 0) {
+                    finalString = firstString;
+                    counter++;
+                } else if (temp.length() < finalString.length()) {
+                    finalString = temp;
+                }
+
+
+
+        }
+
+            System.out.println("The shortest word is: " + finalString);
+
+        System.out.println(" ");
+
+    }
+
+    /*Write a program to Find the Longest word in a string.
+     */
+
+
+
+    public static void longestWordChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a sentence:");
+        String input = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+        String finalString = "";
+
+        int counter = 0;
+
+
+        for (int i = 0; i < userInput.length; i++) {
+
+            String temp = "";
+            temp = userInput[i];
+            String firstString = userInput[0];
+
+
+
+            if (counter == 0) {
+                finalString = firstString;
+                counter++;
+            } else if (temp.length() > finalString.length()) {
+                finalString = temp;
+            }
+
+
+
+        }
+
+            System.out.println("The longest word is: " + finalString);
+
+        System.out.println(" ");
+
+    }
+
+/*Write a Program to Find words ending with given characters(suffix).*/
+    public static void suffixChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string:");
+        String input = sc.nextLine();
+        System.out.println("Please enter a suffix to check:");
+        String suffix = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+
+        int counter =0;
+
+
+        System.out.println("The words that ends with "+ suffix+" are: ");
+
+
+        for (int i = 0; i < userInput.length; i++) {
+
+            String temp = "";
+            temp = userInput[i];
+
+
+
+            if (temp.endsWith(suffix)){
+                    System.out.print(temp);
+                    System.out.print(" ");
+                    counter++;
+
+            }
+
+        }if (counter==0) {
+            System.out.print("none");
+        }
+
+
+
+        System.out.println(" ");
+
+    }
+
+
+    /*Write a Program to Find words starting with given characters(prefix).*/
+    public static void prefixChecker() {
+        System.out.println(" ");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string:");
+        String input = sc.nextLine();
+        System.out.println("Please enter a prefix to check:");
+        String prefix = sc.nextLine();
+        String[] userInput = input.split("\\s");//new String[input.length()];
+
+        int counter =0;
+
+
+        System.out.println("The words that starts with "+ prefix+" are: ");
+
+
+        for (int i = 0; i < userInput.length; i++) {
+
+            String temp = "";
+            temp = userInput[i];
+
+
+
+            if (temp.startsWith(prefix)){
+                System.out.print(temp);
+                System.out.print(" ");
+                counter++;
+
+            }
+
+        }if (counter==0) {
+            System.out.print("none");
+        }
+
+
+
+        System.out.println(" ");
+
+    }
+
+/* Write a Program to Check if a string contains only digits or not.*/
+    public static  void digitChecker() {
+        Scanner sc = new Scanner(System.in);
+        String numbers = "0123456789";
+
+        String[] numbersArray = new String[10];
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        boolean result = false;
+
+
+        for (int i = 0; i < numbersArray.length; i++) {
+            numbersArray[i] = numbers.substring(i, i + 1);
+        }
+        for (int i = 0; i < userInputArray.length; i++) {
+            userInputArray[i] = userInput.substring(i, i + 1);
+        }
+
+        for (int i = 0; i < userInput.length(); i++) {
+            result= false;
+            for (int j = 0; j < numbers.length(); j++) {
+                if (numbersArray[j].contains(userInputArray[i])) {
+                    result=true;
+                }
+
+            }
+            if(!result){
+                break;
+            }
+        }
+
+        if (result){
+            System.out.println("They only contains digits.");
+        } else {
+            System.out.println("They donot contain only digits.");
+        }
+
+        System.out.println(" ");
+    }
+
+
+    /*Write a Program to Check if a string contains at least one Number or Not.
+     */
+
+    public static  void atleastOneNumberChecker() {
+        Scanner sc = new Scanner(System.in);
+        String numbers = "0123456789";
+        int numbersCounter = 0;
+        String[] numbersArray = new String[10];
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        boolean result = false;
+
+
+        for (int i = 0; i < numbersArray.length; i++) {
+            numbersArray[i] = numbers.substring(i, i + 1);
+        }
+        for (int i = 0; i < userInputArray.length; i++) {
+            userInputArray[i] = userInput.substring(i, i + 1);
+        }
+
+        for (int i = 0; i < userInput.length(); i++) {
+
+            for (int j = 0; j < numbers.length(); j++) {
+                if (numbersArray[j].contains(userInputArray[i])) {
+                    result=true;
+                }
+
+            }
+            if(result){
+                break;
+            }
+        }
+
+        if (result){
+            System.out.println("The string at least contains one number.");
+        } else {
+            System.out.println("The string doesn't contain any numbers.");
+        }
+        System.out.println(" ");
+    }
+
+    /*write a program to print every character of a string twice.*/
+    public static  void twiceCharacterPrinter() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+
+        for (int i = 0; i < userInputArray.length; i++) {
+            userInputArray[i] = userInput.substring(i, i + 1);
+        }
+
+        for (int i = 0; i < userInput.length(); i++) {
+            for (int j=2; j>=1; j--){
+                System.out.print(userInputArray[i]);
+            }
+
+        }
+
+
+    }
+
+/*Write a Program to Find the lexicographic rank of a given string.*/
+
+    public static  void lexicographicRank() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter a sentence:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = userInput.split("\\s");
+        String[] lexicographicArray = new String[userInputArray.length];
+        int result =0;
+        for (int i = 0; i < userInputArray.length; i++) {
+            for(int j =0; j< userInputArray.length;j++){
+                result=userInputArray[j].compareTo(userInputArray[i]);
+                if (result>0){
+                    
+                }
+
+            }
+            System.out.println(result);
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 
