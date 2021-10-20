@@ -40,15 +40,22 @@ public class MainProgram {
        // MethodHolder.checkSubstring();
         //MethodHolder.shortPalindromeChecker();
         //MethodHolder.longestPalindromeChecker();
-//MethodHolder.shortestWordChecker();
+    //MethodHolder.shortestWordChecker();
         //MethodHolder.longestWordChecker();
        // MethodHolder.suffixChecker();
         //MethodHolder.prefixChecker();
        // MethodHolder.digitChecker();
         //MethodHolder.atleastOneNumberChecker();
         //MethodHolder.twiceCharacterPrinter();
-        MethodHolder.lexicographicRank();
-
+        //MethodHolder.lexicographicRank();
+        //MethodHolder.maximumOccuringCharacter();
+        //MethodHolder.minimumOccuringCharacter();
+       // MethodHolder.duplicateCharacterRemover();
+        // MethodHolder.reverseWordsInAString();
+        //MethodHolder.duplicateWordsRemover();
+        //MethodHolder.firstNonRepeatingCharacter();
+        //MethodHolder.allnonRepeatingCharacter();
+        MethodHolder.secondMostRepeatingCharacter();
 
 
 
