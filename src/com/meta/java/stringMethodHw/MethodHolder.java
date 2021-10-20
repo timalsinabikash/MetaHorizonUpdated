@@ -1296,33 +1296,360 @@ public class  MethodHolder {
     public static  void lexicographicRank() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Please enter a sentence:");
+        System.out.println("Please enter a string:");
         String userInput = sc.nextLine();
-        String[] userInputArray = userInput.split("\\s");
-        String[] lexicographicArray = new String[userInputArray.length];
+        String[] lexicographicArray = new String[userInput.length()];
         int result =0;
-        for (int i = 0; i < userInputArray.length; i++) {
-            for(int j =0; j< userInputArray.length;j++){
-                result=userInputArray[j].compareTo(userInputArray[i]);
-                if (result>0){
-                    
+        for (int i =0; i<lexicographicArray.length; i++){
+
+            lexicographicArray[i]=userInput.substring(i,i+1);
+            String s = lexicographicArray[i];
+            char temp= userInput.charAt(i);
+            int temp2 = (temp);
+            System.out.println("The lexicographic rank of "+lexicographicArray[i]+" is: "+temp2);
+        }
+
+        }
+
+    /*Write a Program to Find the maximum occurring character in a given string.
+.*/
+
+    public static  void maximumOccuringCharacter() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        int counter=0;
+        String maximum = "";
+        int breaker= 0;
+        for (int i =0; i<userInputArray.length; i++){
+
+           userInputArray[i]=userInput.substring(i,i+1);
+
+        }
+        for (int i =0; i<userInputArray.length; i++){
+            String temp= userInputArray[i];
+            for (int j =0; j<userInputArray.length;j++) {
+                if (temp.equals(userInputArray[j])) {
+                    counter++;
                 }
+            }
+            if (counter==1){
+                counter=0;
+            }else if(breaker==0){
+                maximum=userInputArray[i];
+                breaker= counter;
+                counter=0;
+            }else if(breaker<counter){
+                maximum=userInputArray[i];
+                breaker= counter;
+                counter=0;
+            }
+        }
+        System.out.println("The maximum repeated character is "+maximum);
+        System.out.println(" ");
+
+    }
+     /*Write a Program to Find the minimum occurring character in a given string.
+.*/
+
+    public static  void minimumOccuringCharacter() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        int counter=0;
+        String minimum = "";
+        int breaker= 0;
+        for (int i =0; i<userInputArray.length; i++){
+
+            userInputArray[i]=userInput.substring(i,i+1);
+
+        }
+        for (int i =0; i<userInputArray.length; i++){
+            String temp= userInputArray[i];
+            for (int j =0; j<userInputArray.length;j++) {
+                if (temp.equals(userInputArray[j])) {
+                    counter++;
+                }
+            }
+            if (counter==1||breaker==0) {
+                breaker=counter;
+                counter = 0;
+                minimum="";
+                minimum = minimum + userInputArray[i];
+
+            } else if(counter<breaker){
+                breaker=counter;
+                minimum="";
+                minimum=minimum+userInputArray[i];
+            }else if(counter==breaker){
+                counter=0;
+                if(minimum.contains(userInputArray[i])){
+                    minimum="";
+                    minimum=minimum+userInputArray[i];
+                } else
+                    minimum=minimum+userInputArray[i];
+
 
             }
-            System.out.println(result);
+            else
+
+                counter=0;
+        }
+        System.out.println("The minimum repeated character is "+minimum);
+        System.out.println(" ");
+
+    }
+    /*Write a Program to Remove duplicate characters from a given string.
+     */
+    public static  void duplicateCharacterRemover() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        int counter = 0;
+        String characters = "";
+        int breaker = 0;
+        for (int i = 0; i < userInputArray.length; i++) {
+
+            userInputArray[i] = userInput.substring(i, i + 1);
+
+        }
+        for (int i = 0; i < userInputArray.length; i++) {
+            String temp = userInputArray[i];
+            if(!characters.contains(temp)) {
+                characters = characters + temp;
+            }
 
 
+        }
+        System.out.println("Duplicate characters removed: " + characters);
+        System.out.println(" ");
+    }
+    /*Write a Program to Reverse words in a given string.
+     */
+
+
+    public static void reverseWordsInAString() {
+        System.out.println(" ");
+        String reversed = "";
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string to reverse:");
+        String input = sc.nextLine();
+        if(input.contains("\\s")){
+        String[] userInputWithSpace = input.split("\\s");
+         for (int i = 0; i< userInputWithSpace.length;i++)
+         {
+             String temp = userInputWithSpace[i];
+             String[] tempArray= new String[temp.length()];
+            for (int j =0;j< tempArray.length;j++){
+                tempArray[i]=temp.substring(j,j+1);
+             }
+             for (int j = tempArray.length - 1; j >= 0; j--) {
+                 reversed = reversed + tempArray[i];
+
+             }
+
+
+         }
+
+
+        }else {
+            String[] userInputWithoutSpace = new String[input.length()];
+            for (int i = 0; i < input.length(); i++) {
+                userInputWithoutSpace[i] = input.substring(i, i + 1);
+
+            }
+            for (int i = userInputWithoutSpace.length - 1; i >= 0; i--) {
+                reversed = reversed + userInputWithoutSpace[i];
+
+            }
         }
 
 
 
 
+        System.out.println(reversed);
+        System.out.println(" ");
+
+
+    }
+    /*Write a Program to Remove duplicate words from a given string.
+     */
+    public static  void duplicateWordsRemover() {
+        Scanner sc = new Scanner(System.in);
+        int counter = 0;
+        String duplicate = " ";
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = userInput.split("\\s");
+
+        String revised = "";
+        System.out.print("Duplicate words removed: ");
+        System.out.println(" ");
+        int insideCounter = 0;
+
+
+        for (int i = 0; i < userInputArray.length; i++) {
+            String temp = userInputArray[i];
+            String loweredTemp = temp.toLowerCase(Locale.ROOT);
+            if (!revised.contains(loweredTemp)) {
+                revised = revised + userInputArray[i] + " ";
+            }
+
+
+        }
+
+
+        System.out.println(revised);
+        System.out.println(" ");
+  }
+
+
+
+
+/*Write a Program to Find the first non-repeating character in a string.*/
+
+    public static  void firstNonRepeatingCharacter() {
+        Scanner sc = new Scanner(System.in);
+        int counter = 0;
+        String nonRepeating = " ";
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+
+        for (int i= 0; i<userInputArray.length;i++){
+            userInputArray[i]=userInput.substring(i,i+1);
+        }
+        for (int i =0; i< userInputArray.length;i++){
+            String temp = userInputArray[i];
+            for (int j = 0; j< userInputArray.length; j++){
+                if (temp.equals(userInputArray[j])){
+                    counter++;
+                }
+            }
+            if(counter==1){
+               nonRepeating=userInputArray[i];
+               break;
+            } else if(counter>1){
+                counter=0;
+
+            }
+        }
+
+
+
+
+
+
+        System.out.println("the least used character is:"+nonRepeating);
+        System.out.println(" ");
     }
 
+    /*Write a Program to Find all non-repeated characters in a string..*/
+
+    public static  void allnonRepeatingCharacter() {
+        Scanner sc = new Scanner(System.in);
+        int counter = 0;
+        String nonRepeating = " ";
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+
+        for (int i= 0; i<userInputArray.length;i++){
+            userInputArray[i]=userInput.substring(i,i+1);
+        }
+        for (int i =0; i< userInputArray.length;i++){
+            String temp = userInputArray[i];
+            for (int j = 0; j< userInputArray.length; j++){
+                if (temp.equals(userInputArray[j])){
+                    counter++;
+                }
+            }
+            if(counter==1){
+                counter=0;
+                nonRepeating=nonRepeating+" "+userInputArray[i];
+            } else if(counter>1){
+                counter=0;
+
+            }
+        }
 
 
 
+
+
+
+        System.out.println("the non repeating character/s is/are:"+nonRepeating);
+        System.out.println(" ");
     }
+//    Write a Program to Find the second most frequent character in a given string.
+
+
+    public static  void secondMostRepeatingCharacter() {
+        Scanner sc = new Scanner(System.in);
+        int counter = 0;
+        String result = " ";
+        int breaker=0;
+        int firstMost=0;
+        int secondMost=0;
+        int[] number = new int[100];
+
+        System.out.println("Please enter a string:");
+        String userInput = sc.nextLine();
+        String[] userInputArray = new String[userInput.length()];
+        String[] indexer= new String[userInputArray.length];
+
+
+        for (int i= 0; i<userInputArray.length;i++){
+            userInputArray[i]=userInput.substring(i,i+1);
+        }
+        for (int i =0; i< userInputArray.length;i++){
+            String temp = userInputArray[i];
+            for (int j = 0; j< userInputArray.length; j++){
+                if (temp.equals(userInputArray[j])){
+                    counter++;
+                }
+            }
+            if (counter==1){
+                counter=0;
+            }else if(breaker==0){
+               result =userInputArray[i];
+                breaker= counter;
+                firstMost=breaker;
+                counter=0;
+            }else if(breaker<counter){
+                result=userInputArray[i];
+                breaker= counter;
+                firstMost=breaker;
+                counter=0;
+            }
+        }
+        System.out.println(breaker);
+
+
+
+
+
+
+        System.out.println("the non repeating character/s is/are:"+result);
+        System.out.println(" ");
+    }
+
+}
+
+
+
+
+
 
 
 
